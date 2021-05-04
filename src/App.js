@@ -1,5 +1,6 @@
-import Dane from './Dane.js';
-import DodajDane from './DodajDane.js';
+import React from 'react'
+import Dane from './Dane';
+import DodajDane from './DodajDane';
 
 function App() {
   return (
