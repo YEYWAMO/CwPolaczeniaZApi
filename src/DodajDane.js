@@ -2,9 +2,9 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const DodajDane = () =>{
-    const [imie, setImie] = useState("");
-    const [nazwisko, setNazwisko] = useState("");
-    const [indeks, setIndeks] = useState("");
+    const [name, setName] = useState("");
+    const [surname, setSurname] = useState("");
+    const [index, setIndex] = useState("");
 
     async function wyslij(event) {
         event.preventDefault();
@@ -12,9 +12,9 @@ const DodajDane = () =>{
             const add = await axios.post(
               `https://uwm-gr2.azurewebsites.net/api/Student`,
               {
-                imie,
-                nazwisko,
-                indeks,
+                name,
+                surname,
+                index,
               }
             );
           } catch (error) {
@@ -26,11 +26,11 @@ const DodajDane = () =>{
         <div style={{display:"flex",marginLeft:"10px",justifyContent:"right"}}>
             <form onSubmit={(event) => wyslij(event)}>
                 <label>Imie: </label>
-                <input type="text" value={imie} onChange={(event) => setImie(event.target.value)}  ></input><br/>
+                <input type="text" value={name} onChange={(event) => setName(event.target.value)} required ></input><br/>
                 <label>Nazwisko: </label>
-                <input type="text" value={nazwisko} onChange={(event) => setNazwisko(event.target.value)}  ></input><br/>
+                <input type="text" value={surname} onChange={(event) => setSurname(event.target.value)} required ></input><br/>
                 <label>Indeks: </label>
-                <input type="text" value={indeks} onChange={(event) => setIndeks(event.target.value)}  ></input><br/>
+                <input type="text" value={index} onChange={(event) => setIndex(event.target.value)} required ></input><br/>
                 <input type="Submit" value="Wyślij"/>
             </form>
         </div>
